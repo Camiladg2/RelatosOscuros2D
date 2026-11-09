@@ -1,8 +1,15 @@
 fileFormatVersion: 2
-guid: d03ed43fc9d8a4f2e9fa70c1c7916eb9
+guid: 875b685f74a74140986d3eea670db9a9
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 158673
+  packageName: Lost Crypt | 2D Sample Project
+  packageVersion: 1.7
+  assetPath: Assets/Settings/Lit2DSceneTemplate.scenetemplate
+  uploadId: 1007024
