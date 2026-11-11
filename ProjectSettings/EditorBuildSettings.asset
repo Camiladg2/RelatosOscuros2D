@@ -5,8 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Lost Crypt/Scenes/Main.unity
     guid: a2b58d8c2e473104380da39b8eb2a7e5
+  - enabled: 1
+    path: Assets/Scenes/Inicio.unity
+    guid: 41c4f4412f9cf3e4b8f82a0b8b7b3361
+  - enabled: 1
+    path: Assets/Scenes/World_1.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/World_2.unity
+    guid: cdba88ae52fed7043aba448eae25bf7a
+  - enabled: 1
+    path: Assets/Scenes/World_3.unity
+    guid: 2ec217b24f5178549ac36386d9d54a01
+  - enabled: 1
+    path: Assets/Scenes/Prefab_Pausa_Mundos.unity
+    guid: daccb6449a71b0c478cea9ffe0eb15b5
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
