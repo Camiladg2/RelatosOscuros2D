@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 3b295765292168f4fba2bd8fd07662f4
+guid: 3631fb5917c78b94ca849605a667bd1e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2071633423404018423
-    second: "Da\xF1o_0"
+      213: -1397808164997601971
+    second: "Da\xF1o (2)_0"
   - first:
-      213: 8344301135449368252
-    second: "Da\xF1o_1"
+      213: -15409783703181413
+    second: "Da\xF1o (2)_1"
   - first:
-      213: -2378675213923266682
-    second: "Da\xF1o_2"
+      213: -4128036997456585769
+    second: "Da\xF1o (2)_2"
+  - first:
+      213: -4546798823174824539
+    second: "Da\xF1o (2)_3"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,67 +109,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Da\xF1o_0"
+      name: "Da\xF1o (2)_0"
       rect:
         serializedVersion: 2
-        x: 36
-        y: 29
-        width: 167
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7faa2d26f9befbc10800000000000000
-      internalID: 2071633423404018423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Da\xF1o_1"
-      rect:
-        serializedVersion: 2
-        x: 207
+        x: 38
         y: 30
         width: 163
         height: 178
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb629553ca9ecc370800000000000000
-      internalID: 8344301135449368252
+      spriteID: d456d2d31ecf99ce0800000000000000
+      internalID: -1397808164997601971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Da\xF1o_2"
+      name: "Da\xF1o (2)_1"
       rect:
         serializedVersion: 2
-        x: 371
-        y: 28
-        width: 168
-        height: 178
+        x: 209
+        y: 31
+        width: 160
+        height: 176
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68fc316ee7f3dfed0800000000000000
-      internalID: -2378675213923266682
+      spriteID: b976e4422e049cff0800000000000000
+      internalID: -15409783703181413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Da\xF1o (2)_3"
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 30
+        width: 159
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad108f6f8686e0c0800000000000000
+      internalID: -4546798823174824539
       vertices: []
       indices: 
       edges: []
@@ -175,7 +178,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 51c0ed168a0b69d4aa7bf8032608b974
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +188,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Da\xF1o_0": 2071633423404018423
-      "Da\xF1o_1": 8344301135449368252
-      "Da\xF1o_2": -2378675213923266682
+      "Da\xF1o (2)_0": -1397808164997601971
+      "Da\xF1o (2)_1": -15409783703181413
+      "Da\xF1o (2)_2": -4128036997456585769
+      "Da\xF1o (2)_3": -4546798823174824539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

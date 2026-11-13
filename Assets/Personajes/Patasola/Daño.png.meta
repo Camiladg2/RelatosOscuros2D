@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 62756bd6c1eec4b439ac6839652c75f1
+guid: bcb1ffb1e4c7a7e4888c89a5a5116e02
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -20,15 +20,6 @@ TextureImporter:
   - first:
       213: 8946766859364839418
     second: "Da\xF1o_5"
-  - first:
-      213: 298526859572091389
-    second: "Da\xF1o_6"
-  - first:
-      213: 6869250963025169347
-    second: "Da\xF1o_7"
-  - first:
-      213: 2159659354427783642
-    second: "Da\xF1o_8"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 90
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,10 +118,10 @@ TextureImporter:
       name: "Da\xF1o_0"
       rect:
         serializedVersion: 2
-        x: 46
+        x: 47
         y: 0
-        width: 137
-        height: 151
+        width: 132
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +140,10 @@ TextureImporter:
       name: "Da\xF1o_1"
       rect:
         serializedVersion: 2
-        x: 156
-        y: 143
-        width: 49
-        height: 8
+        x: 236
+        y: 1
+        width: 116
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +162,10 @@ TextureImporter:
       name: "Da\xF1o_2"
       rect:
         serializedVersion: 2
-        x: 207
-        y: 143
-        width: 29
-        height: 8
+        x: 410
+        y: 1
+        width: 110
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +184,10 @@ TextureImporter:
       name: "Da\xF1o_3"
       rect:
         serializedVersion: 2
-        x: 233
+        x: 582
         y: 0
-        width: 158
-        height: 151
+        width: 114
+        height: 137
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +206,10 @@ TextureImporter:
       name: "Da\xF1o_4"
       rect:
         serializedVersion: 2
-        x: 406
+        x: 754
         y: 0
-        width: 116
-        height: 151
+        width: 120
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +228,10 @@ TextureImporter:
       name: "Da\xF1o_5"
       rect:
         serializedVersion: 2
-        x: 932
+        x: 935
         y: 0
-        width: 123
-        height: 151
+        width: 117
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,72 +242,6 @@ TextureImporter:
       bones: []
       spriteID: affadac7e0d492c70800000000000000
       internalID: 8946766859364839418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Da\xF1o_6"
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 0
-        width: 21
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df915bcd894942400800000000000000
-      internalID: 298526859572091389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Da\xF1o_7"
-      rect:
-        serializedVersion: 2
-        x: 579
-        y: 0
-        width: 119
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3cb00242b5b745f50800000000000000
-      internalID: 6869250963025169347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Da\xF1o_8"
-      rect:
-        serializedVersion: 2
-        x: 752
-        y: 0
-        width: 126
-        height: 138
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad974809db6a8fd10800000000000000
-      internalID: 2159659354427783642
       vertices: []
       indices: 
       edges: []
@@ -341,9 +266,6 @@ TextureImporter:
       "Da\xF1o_3": -8499689905504583984
       "Da\xF1o_4": -52002012094163675
       "Da\xF1o_5": 8946766859364839418
-      "Da\xF1o_6": 298526859572091389
-      "Da\xF1o_7": 6869250963025169347
-      "Da\xF1o_8": 2159659354427783642
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

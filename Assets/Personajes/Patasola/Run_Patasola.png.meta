@@ -1,28 +1,37 @@
 fileFormatVersion: 2
-guid: 40fc9556739acd947ad9b676adb67559
+guid: 8159c086b132ff9449707b2d53f6dec6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2609148879433211382
-    second: Muerte _0
+      213: -1439379864163942520
+    second: Run_Patasola_0
   - first:
-      213: -8985504053572476594
-    second: Muerte _1
+      213: 3991962497951328327
+    second: Run_Patasola_1
   - first:
-      213: 1391961308676329577
-    second: Muerte _2
+      213: -9040847257658323128
+    second: Run_Patasola_2
   - first:
-      213: -3592041125094800948
-    second: Muerte _3
+      213: 311065609972950229
+    second: Run_Patasola_3
   - first:
-      213: 4954665619446486246
-    second: Muerte _4
+      213: 2842088914961739580
+    second: Run_Patasola_4
   - first:
-      213: 7792000293310186281
-    second: Muerte _5
+      213: -4052931222746903427
+    second: Run_Patasola_5
   - first:
-      213: -6226547567799120254
-    second: Muerte _6
+      213: -5700017427036439048
+    second: Run_Patasola_6
+  - first:
+      213: -7316977608840056139
+    second: Run_Patasola_7
+  - first:
+      213: 1276758530364557593
+    second: Run_Patasola_8
+  - first:
+      213: 5307411107289476029
+    second: Run_Patasola_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 140
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -118,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Muerte _0
+      name: Run_Patasola_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 28
-        width: 168
-        height: 157
+        x: 98
+        y: 9
+        width: 235
+        height: 332
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6fd99bcf41f853420800000000000000
-      internalID: 2609148879433211382
+      spriteID: 88f78a3c3ab460ce0800000000000000
+      internalID: -1439379864163942520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Muerte _1
+      name: Run_Patasola_1
       rect:
         serializedVersion: 2
-        x: 175
-        y: 20
-        width: 167
-        height: 152
+        x: 339
+        y: 18
+        width: 218
+        height: 321
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e41eaf6aba31d4380800000000000000
-      internalID: -8985504053572476594
+      spriteID: 748e117ddbc466730800000000000000
+      internalID: 3991962497951328327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Muerte _2
+      name: Run_Patasola_2
       rect:
         serializedVersion: 2
-        x: 234
-        y: 168
-        width: 22
-        height: 19
+        x: 577
+        y: 7
+        width: 186
+        height: 339
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9609db07f6d315310800000000000000
-      internalID: 1391961308676329577
+      spriteID: 84f06b2d155788280800000000000000
+      internalID: -9040847257658323128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Muerte _3
+      name: Run_Patasola_3
       rect:
         serializedVersion: 2
-        x: 346
-        y: 23
-        width: 170
-        height: 148
+        x: 778
+        y: 2
+        width: 195
+        height: 338
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc14120d0a1862ec0800000000000000
-      internalID: -3592041125094800948
+      spriteID: 5d427403680215400800000000000000
+      internalID: 311065609972950229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Muerte _4
+      name: Run_Patasola_4
       rect:
         serializedVersion: 2
-        x: 515
-        y: 23
-        width: 177
-        height: 129
+        x: 976
+        y: 9
+        width: 192
+        height: 330
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e4d2f3412282c440800000000000000
-      internalID: 4954665619446486246
+      spriteID: c3fae546fc0217720800000000000000
+      internalID: 2842088914961739580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Muerte _5
+      name: Run_Patasola_5
       rect:
         serializedVersion: 2
-        x: 566
-        y: 145
-        width: 20
-        height: 13
+        x: 1167
+        y: 0
+        width: 216
+        height: 337
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +252,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9234e74abfeb22c60800000000000000
-      internalID: 7792000293310186281
+      spriteID: d7cc419b68811c7c0800000000000000
+      internalID: -4052931222746903427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Muerte _6
+      name: Run_Patasola_6
       rect:
         serializedVersion: 2
-        x: 694
-        y: 31
-        width: 127
-        height: 29
+        x: 1416
+        y: 6
+        width: 218
+        height: 329
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,8 +274,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28ec24c0afbd699a0800000000000000
-      internalID: -6226547567799120254
+      spriteID: 8fdf4ff995875e0b0800000000000000
+      internalID: -5700017427036439048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Patasola_7
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 7
+        width: 208
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b2f99bb1afd47a90800000000000000
+      internalID: -7316977608840056139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Patasola_8
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 13
+        width: 226
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 919445a6e15f7b110800000000000000
+      internalID: 1276758530364557593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_Patasola_9
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 10
+        width: 243
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbba3fe3846b7a940800000000000000
+      internalID: 5307411107289476029
       vertices: []
       indices: 
       edges: []
@@ -285,13 +360,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Muerte _0: 2609148879433211382
-      Muerte _1: -8985504053572476594
-      Muerte _2: 1391961308676329577
-      Muerte _3: -3592041125094800948
-      Muerte _4: 4954665619446486246
-      Muerte _5: 7792000293310186281
-      Muerte _6: -6226547567799120254
+      Run_Patasola_0: -1439379864163942520
+      Run_Patasola_1: 3991962497951328327
+      Run_Patasola_2: -9040847257658323128
+      Run_Patasola_3: 311065609972950229
+      Run_Patasola_4: 2842088914961739580
+      Run_Patasola_5: -4052931222746903427
+      Run_Patasola_6: -5700017427036439048
+      Run_Patasola_7: -7316977608840056139
+      Run_Patasola_8: 1276758530364557593
+      Run_Patasola_9: 5307411107289476029
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

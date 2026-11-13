@@ -1,28 +1,79 @@
 fileFormatVersion: 2
-guid: 7602269e64fa0d94da04159e38c66d80
+guid: 6090e95cfd4f68f46b3e5c2c2b79227f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7154665842686882514
-    second: Morir _0
+      213: -4199157903875480805
+    second: Muerte_0
   - first:
-      213: -8740613145199258221
-    second: Morir _1
+      213: -6658403281168274479
+    second: Muerte_1
   - first:
-      213: 1278492074805499949
-    second: Morir _2
+      213: 4711549668344788953
+    second: Muerte_2
   - first:
-      213: -3637213318081419281
-    second: Morir _3
+      213: 999983340373582875
+    second: Muerte_3
   - first:
-      213: 3184990716294670589
-    second: Morir _4
+      213: 1003902494783844825
+    second: Muerte_4
   - first:
-      213: -56448946708701209
-    second: Morir _5
+      213: -2008831007321462064
+    second: Muerte_5
   - first:
-      213: 55437361088414967
-    second: Morir _6
+      213: 7424743338619824553
+    second: Muerte_6
+  - first:
+      213: 2912700135485393712
+    second: Muerte_7
+  - first:
+      213: -1379392146161735921
+    second: Muerte_8
+  - first:
+      213: 6436097600213527856
+    second: Muerte_9
+  - first:
+      213: -8650876713826331276
+    second: Muerte_10
+  - first:
+      213: -1634119097845726312
+    second: Muerte_11
+  - first:
+      213: 4196880005249445760
+    second: Muerte_12
+  - first:
+      213: 2455795370212995091
+    second: Muerte_13
+  - first:
+      213: 5364934104314177723
+    second: Muerte_14
+  - first:
+      213: 8847192312685380872
+    second: Muerte_15
+  - first:
+      213: 6937282264444708722
+    second: Muerte_16
+  - first:
+      213: -3844684992327745387
+    second: Muerte_17
+  - first:
+      213: -2729271901565039245
+    second: Muerte_18
+  - first:
+      213: -6476985897799395138
+    second: Muerte_19
+  - first:
+      213: -795939307460091668
+    second: Muerte_20
+  - first:
+      213: -626519809997949286
+    second: Muerte_21
+  - first:
+      213: 4648543266278178040
+    second: Muerte_22
+  - first:
+      213: 4708518221828222648
+    second: Muerte_23
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,57 +169,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Morir _0
+      name: Muerte_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 0
-        width: 516
-        height: 155
+        x: 6
+        y: 29
+        width: 164
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2d0708b25585bc90800000000000000
-      internalID: -7154665842686882514
+      spriteID: b136abf622899b5c0800000000000000
+      internalID: -4199157903875480805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Morir _1
+      name: Muerte_1
       rect:
         serializedVersion: 2
-        x: 497
-        y: 0
-        width: 173
-        height: 130
+        x: 178
+        y: 21
+        width: 163
+        height: 163
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 395d94977aa13b680800000000000000
-      internalID: -8740613145199258221
+      spriteID: 1db6ba65e799893a0800000000000000
+      internalID: -6658403281168274479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Morir _2
+      name: Muerte_2
       rect:
         serializedVersion: 2
-        x: 695
-        y: 0
-        width: 191
-        height: 107
+        x: 346
+        y: 24
+        width: 170
+        height: 159
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +228,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d281feea4cd1eb110800000000000000
-      internalID: 1278492074805499949
+      spriteID: 9d7fc43e579c26140800000000000000
+      internalID: 4711549668344788953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Morir _3
+      name: Muerte_3
       rect:
         serializedVersion: 2
-        x: 908
-        y: 0
-        width: 196
-        height: 102
+        x: 519
+        y: 25
+        width: 171
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe7ef6b02c5068dc0800000000000000
-      internalID: -3637213318081419281
+      spriteID: b14a648cc87a0ed00800000000000000
+      internalID: 999983340373582875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Morir _4
+      name: Muerte_4
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 0
-        width: 198
-        height: 101
+        x: 693
+        y: 24
+        width: 135
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,52 +272,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df829a18e2c533c20800000000000000
-      internalID: 3184990716294670589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Morir _5
-      rect:
-        serializedVersion: 2
-        x: 1344
-        y: 0
-        width: 212
-        height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ef9b776bf3773ff0800000000000000
-      internalID: -56448946708701209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Morir _6
-      rect:
-        serializedVersion: 2
-        x: 1569
-        y: 0
-        width: 214
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7f4c5f67cf3f4c000800000000000000
-      internalID: 55437361088414967
+      spriteID: 9d138b600049eed00800000000000000
+      internalID: 1003902494783844825
       vertices: []
       indices: 
       edges: []
@@ -275,7 +282,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a91ce879b45ba5243b502cc9b18172ec
     internalID: 0
     vertices: []
     indices: 
@@ -285,13 +292,30 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Morir _0: -7154665842686882514
-      Morir _1: -8740613145199258221
-      Morir _2: 1278492074805499949
-      Morir _3: -3637213318081419281
-      Morir _4: 3184990716294670589
-      Morir _5: -56448946708701209
-      Morir _6: 55437361088414967
+      Muerte_0: -4199157903875480805
+      Muerte_1: -6658403281168274479
+      Muerte_10: -8650876713826331276
+      Muerte_11: -1634119097845726312
+      Muerte_12: 4196880005249445760
+      Muerte_13: 2455795370212995091
+      Muerte_14: 5364934104314177723
+      Muerte_15: 8847192312685380872
+      Muerte_16: 6937282264444708722
+      Muerte_17: -3844684992327745387
+      Muerte_18: -2729271901565039245
+      Muerte_19: -6476985897799395138
+      Muerte_2: 4711549668344788953
+      Muerte_20: -795939307460091668
+      Muerte_21: -626519809997949286
+      Muerte_22: 4648543266278178040
+      Muerte_23: 4708518221828222648
+      Muerte_3: 999983340373582875
+      Muerte_4: 1003902494783844825
+      Muerte_5: -2008831007321462064
+      Muerte_6: 7424743338619824553
+      Muerte_7: 2912700135485393712
+      Muerte_8: -1379392146161735921
+      Muerte_9: 6436097600213527856
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
