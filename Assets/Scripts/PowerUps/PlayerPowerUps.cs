@@ -17,6 +17,8 @@ public class PowerSettings
     public float duration = 15f;
     [Tooltip("Objeto hijo con el aura o los destellos (se enciende mientras dura el poder).")]
     public GameObject aura;
+    [Tooltip("Color con el que se tiñe la protagonista mientras dura el poder (con transparencia 0 no se tiñe).")]
+    public Color tint = Color.white;
 }
 
 /// <summary>
@@ -28,9 +30,9 @@ public class PlayerPowerUps : MonoBehaviour
     [Header("Configura los 3 poderes aqui")]
     public PowerSettings[] powers = new PowerSettings[]
     {
-        new PowerSettings { type = PowerType.DobleSalto, duration = 15f },
-        new PowerSettings { type = PowerType.EscudoAgua, duration = 15f },
-        new PowerSettings { type = PowerType.SaviaDeMonte, duration = 15f }
+        new PowerSettings { type = PowerType.DobleSalto, duration = 15f, tint = new Color(1f, 0.78f, 0.45f) },
+        new PowerSettings { type = PowerType.EscudoAgua, duration = 15f, tint = new Color(0.55f, 0.9f, 1f) },
+        new PowerSettings { type = PowerType.SaviaDeMonte, duration = 15f, tint = new Color(0.7f, 1f, 0.5f) }
     };
 
     [Header("Efectos")]
@@ -55,6 +57,7 @@ public class PlayerPowerUps : MonoBehaviour
     private PlayerController2D controller;
     private PlayerHealth health;
     private SafeAnimator anim;
+    private SpriteRenderer sprite;
 
     private static readonly int PowerUpHash = Animator.StringToHash("PowerUp");
     private static readonly int PowerTypeHash = Animator.StringToHash("PowerType");
@@ -65,6 +68,7 @@ public class PlayerPowerUps : MonoBehaviour
         health = GetComponent<PlayerHealth>();
         Animator a = GetComponentInChildren<Animator>();
         anim = new SafeAnimator(a);
+        sprite = GetComponentInChildren<SpriteRenderer>();
         foreach (PowerSettings p in powers)
             if (p.aura != null) p.aura.SetActive(false);
     }
@@ -95,6 +99,13 @@ public class PlayerPowerUps : MonoBehaviour
         CurrentDuration = settings.duration;
         TimeLeft = settings.duration;
         if (settings.aura != null) settings.aura.SetActive(true);
+        if (sprite != null)
+        {
+            Color t = settings.tint;
+            bool isWhite = t.r > 0.99f && t.g > 0.99f && t.b > 0.99f;
+            if (isWhite) t = DefaultTint(type);
+            if (t.a > 0.01f) sprite.color = t;
+        }
 
         switch (type)
         {
@@ -142,9 +153,21 @@ public class PlayerPowerUps : MonoBehaviour
             controller.speedMultiplier = 1f;
         }
         ShieldUp = false;
+        if (sprite != null) sprite.color = Color.white;
         Current = PowerType.None;
         TimeLeft = 0f;
         if (OnPowerEnded != null) OnPowerEnded(ended);
+    }
+
+    private static Color DefaultTint(PowerType type)
+    {
+        switch (type)
+        {
+            case PowerType.DobleSalto: return new Color(1f, 0.78f, 0.45f);
+            case PowerType.EscudoAgua: return new Color(0.55f, 0.9f, 1f);
+            case PowerType.SaviaDeMonte: return new Color(0.7f, 1f, 0.5f);
+            default: return Color.white;
+        }
     }
 
     private PowerSettings Find(PowerType type)

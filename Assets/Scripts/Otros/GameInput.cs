@@ -44,6 +44,18 @@ public static class GameInput
 #endif
     }
 
+    /// <summary>Tecla F, J o clic izquierdo del mouse.</summary>
+    public static bool AttackPressed()
+    {
+#if ENABLE_INPUT_SYSTEM
+        Keyboard k = Keyboard.current;
+        Mouse m = Mouse.current;
+        return (k != null && (k.fKey.wasPressedThisFrame || k.jKey.wasPressedThisFrame)) || (m != null && m.leftButton.wasPressedThisFrame);
+#else
+        return Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0);
+#endif
+    }
+
     public static bool InteractPressed()
     {
 #if ENABLE_INPUT_SYSTEM
