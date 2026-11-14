@@ -1,0 +1,263 @@
+fileFormatVersion: 2
+guid: c83ea03bbab70244abc2ad3b91becb51
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1374073995502978774
+    second: Neblina_Verde_1024x512_0
+  - first:
+      213: 5379930805332713896
+    second: Neblina_Verde_1024x512_1
+  - first:
+      213: -6686066234960294884
+    second: Neblina_Verde_1024x512_2
+  - first:
+      213: -6037973057525968260
+    second: Neblina_Verde_1024x512_3
+  - first:
+      213: -6343558376808925267
+    second: Neblina_Verde_1024x512_4
+  - first:
+      213: 7232577579164045388
+    second: Neblina_Verde_1024x512_5
+  - first:
+      213: -3332141254636780577
+    second: Neblina_Verde_1024x512_6
+  - first:
+      213: -6485575969005498205
+    second: Neblina_Verde_1024x512_7
+  - first:
+      213: -8756132088201504931
+    second: Neblina_Verde_1024x512_8
+  - first:
+      213: 3822267786686998231
+    second: Neblina_Verde_1024x512_9
+  - first:
+      213: -8468962867841017506
+    second: Neblina_Verde_1024x512_10
+  - first:
+      213: -6926931678351383439
+    second: Neblina_Verde_1024x512_11
+  - first:
+      213: 4248556361867447771
+    second: Neblina_Verde_1024x512_12
+  - first:
+      213: -5796761635363413736
+    second: Neblina_Verde_1024x512_13
+  - first:
+      213: 7017504236218607702
+    second: Neblina_Verde_1024x512_14
+  - first:
+      213: -3469560714907475872
+    second: Neblina_Verde_1024x512_15
+  - first:
+      213: 4925607369934879853
+    second: Neblina_Verde_1024x512_16
+  - first:
+      213: 2253548351643752260
+    second: Neblina_Verde_1024x512_17
+  - first:
+      213: 3956614186805604308
+    second: Neblina_Verde_1024x512_18
+  - first:
+      213: -6187977780320765842
+    second: Neblina_Verde_1024x512_19
+  - first:
+      213: -5255305902781664101
+    second: Neblina_Verde_1024x512_20
+  - first:
+      213: -8109670018899539989
+    second: Neblina_Verde_1024x512_21
+  - first:
+      213: 3894162743900984983
+    second: Neblina_Verde_1024x512_22
+  - first:
+      213: -5714782876009893018
+    second: Neblina_Verde_1024x512_23
+  - first:
+      213: -6489077475792327561
+    second: Neblina_Verde_1024x512_24
+  - first:
+      213: 7349467281293579338
+    second: Neblina_Verde_1024x512_25
+  - first:
+      213: -2508994890610724544
+    second: Neblina_Verde_1024x512_26
+  - first:
+      213: -4747287870844094474
+    second: Neblina_Verde_1024x512_27
+  - first:
+      213: -8231695494164927992
+    second: Neblina_Verde_1024x512_28
+  - first:
+      213: 4552174644870244389
+    second: Neblina_Verde_1024x512_29
+  - first:
+      213: 2432447692632809131
+    second: Neblina_Verde_1024x512_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Neblina_Verde_1024x512_0
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 812
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2971f23bfe4eece0800000000000000
+      internalID: -1374073995502978774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b0372ce1ee152984bb5d3a0e9b458ca2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Neblina_Verde_1024x512_0: -1374073995502978774
+      Neblina_Verde_1024x512_1: 5379930805332713896
+      Neblina_Verde_1024x512_10: -8468962867841017506
+      Neblina_Verde_1024x512_11: -6926931678351383439
+      Neblina_Verde_1024x512_12: 4248556361867447771
+      Neblina_Verde_1024x512_13: -5796761635363413736
+      Neblina_Verde_1024x512_14: 7017504236218607702
+      Neblina_Verde_1024x512_15: -3469560714907475872
+      Neblina_Verde_1024x512_16: 4925607369934879853
+      Neblina_Verde_1024x512_17: 2253548351643752260
+      Neblina_Verde_1024x512_18: 3956614186805604308
+      Neblina_Verde_1024x512_19: -6187977780320765842
+      Neblina_Verde_1024x512_2: -6686066234960294884
+      Neblina_Verde_1024x512_20: -5255305902781664101
+      Neblina_Verde_1024x512_21: -8109670018899539989
+      Neblina_Verde_1024x512_22: 3894162743900984983
+      Neblina_Verde_1024x512_23: -5714782876009893018
+      Neblina_Verde_1024x512_24: -6489077475792327561
+      Neblina_Verde_1024x512_25: 7349467281293579338
+      Neblina_Verde_1024x512_26: -2508994890610724544
+      Neblina_Verde_1024x512_27: -4747287870844094474
+      Neblina_Verde_1024x512_28: -8231695494164927992
+      Neblina_Verde_1024x512_29: 4552174644870244389
+      Neblina_Verde_1024x512_3: -6037973057525968260
+      Neblina_Verde_1024x512_30: 2432447692632809131
+      Neblina_Verde_1024x512_4: -6343558376808925267
+      Neblina_Verde_1024x512_5: 7232577579164045388
+      Neblina_Verde_1024x512_6: -3332141254636780577
+      Neblina_Verde_1024x512_7: -6485575969005498205
+      Neblina_Verde_1024x512_8: -8756132088201504931
+      Neblina_Verde_1024x512_9: 3822267786686998231
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

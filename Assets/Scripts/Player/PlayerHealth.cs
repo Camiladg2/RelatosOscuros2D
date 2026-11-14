@@ -51,8 +51,14 @@ public class PlayerHealth : MonoBehaviour
         if (OnHealthChanged != null) OnHealthChanged(CurrentHealth, maxHealth);
     }
 
-    /// <summary>Quita vida. Devuelve true si realmente hizo dano.</summary>
+    /// <summary>Quita vida con empujon. Devuelve true si realmente hizo dano.</summary>
     public bool TakeDamage(int amount, Vector2 sourcePosition)
+    {
+        return TakeDamage(amount, sourcePosition, true);
+    }
+
+    /// <summary>Quita vida. Con applyKnockback en false no la empuja (por ejemplo, la lluvia de acido).</summary>
+    public bool TakeDamage(int amount, Vector2 sourcePosition, bool applyKnockback)
     {
         if (IsDead || IsInvulnerable) return false;
 
@@ -72,8 +78,11 @@ public class PlayerHealth : MonoBehaviour
             return true;
         }
 
-        float side = transform.position.x >= sourcePosition.x ? 1f : -1f;
-        controller.ApplyKnockback(new Vector2(side, 0.8f), knockbackForce, stunTime);
+        if (applyKnockback)
+        {
+            float side = transform.position.x >= sourcePosition.x ? 1f : -1f;
+            controller.ApplyKnockback(new Vector2(side, 0.8f), knockbackForce, stunTime);
+        }
         anim.SetTrigger(HurtHash);
         StartCoroutine(InvulnerabilityRoutine(invulnerableTime));
         return true;

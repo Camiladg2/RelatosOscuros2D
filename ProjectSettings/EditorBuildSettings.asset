@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prefab_Pausa_Mundos.unity
     guid: daccb6449a71b0c478cea9ffe0eb15b5
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 68fe74cff23230848b7a80ff1b2511a4
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
