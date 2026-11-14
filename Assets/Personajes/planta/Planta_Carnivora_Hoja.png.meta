@@ -1,0 +1,407 @@
+fileFormatVersion: 2
+guid: c95716b7fa72e364a9f987682a5cc867
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7916380661026716411
+    second: Planta_Carnivora_Hoja_0
+  - first:
+      213: 7744921619023239559
+    second: Planta_Carnivora_Hoja_1
+  - first:
+      213: -4204345182727569241
+    second: Planta_Carnivora_Hoja_2
+  - first:
+      213: -1459713752263898046
+    second: Planta_Carnivora_Hoja_3
+  - first:
+      213: 8523070022703265976
+    second: Planta_Carnivora_Hoja_4
+  - first:
+      213: -8596158011514350474
+    second: Planta_Carnivora_Hoja_5
+  - first:
+      213: -32708411241223659
+    second: Planta_Carnivora_Hoja_6
+  - first:
+      213: 3366198219928697953
+    second: Planta_Carnivora_Hoja_7
+  - first:
+      213: 2723573642744237036
+    second: Planta_Carnivora_Hoja_8
+  - first:
+      213: -5717377824289440375
+    second: Planta_Carnivora_Hoja_9
+  - first:
+      213: -6178727538687342325
+    second: Planta_Carnivora_Hoja_10
+  - first:
+      213: -5988286528368373878
+    second: Planta_Carnivora_Hoja_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 400
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 2931
+        width: 593
+        height: 742
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5050bb84bbd532290800000000000000
+      internalID: -7916380661026716411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_1
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 2931
+        width: 611
+        height: 701
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7899f1b9d2d7b7b60800000000000000
+      internalID: 7744921619023239559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_2
+      rect:
+        serializedVersion: 2
+        x: 1477
+        y: 2931
+        width: 611
+        height: 568
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a00666f45a27a5c0800000000000000
+      internalID: -4204345182727569241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_3
+      rect:
+        serializedVersion: 2
+        x: 2317
+        y: 2931
+        width: 560
+        height: 491
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24cce82831e0ebbe0800000000000000
+      internalID: -1459713752263898046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_4
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 1475
+        width: 650
+        height: 1357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b8320b4707084670800000000000000
+      internalID: 8523070022703265976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_5
+      rect:
+        serializedVersion: 2
+        x: 2332
+        y: 1436
+        width: 531
+        height: 1466
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6741f8a35df44b880800000000000000
+      internalID: -8596158011514350474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_7
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1475
+        width: 664
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16cf666327327be20800000000000000
+      internalID: 3366198219928697953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_8
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1475
+        width: 602
+        height: 686
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb03674cc31cc520800000000000000
+      internalID: 2723573642744237036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 19
+        width: 518
+        height: 1208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d3888292bc7a0b0800000000000000
+      internalID: -5717377824289440375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_10
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 19
+        width: 563
+        height: 931
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b090e943a00c04aa0800000000000000
+      internalID: -6178727538687342325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planta_Carnivora_Hoja_11
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 19
+        width: 607
+        height: 830
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f8857312555eca0800000000000000
+      internalID: -5988286528368373878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f7dc53df198f7b24a90aaa09f313c7f1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Planta_Carnivora_Hoja_0: -7916380661026716411
+      Planta_Carnivora_Hoja_1: 7744921619023239559
+      Planta_Carnivora_Hoja_10: -6178727538687342325
+      Planta_Carnivora_Hoja_11: -5988286528368373878
+      Planta_Carnivora_Hoja_2: -4204345182727569241
+      Planta_Carnivora_Hoja_3: -1459713752263898046
+      Planta_Carnivora_Hoja_4: 8523070022703265976
+      Planta_Carnivora_Hoja_5: -8596158011514350474
+      Planta_Carnivora_Hoja_6: -32708411241223659
+      Planta_Carnivora_Hoja_7: 3366198219928697953
+      Planta_Carnivora_Hoja_8: 2723573642744237036
+      Planta_Carnivora_Hoja_9: -5717377824289440375
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
