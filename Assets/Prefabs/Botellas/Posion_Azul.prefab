@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3859534118735183779}
   - component: {fileID: 7654583496130939497}
-  - component: {fileID: 376537702932092136}
   - component: {fileID: 365630672576076129}
-  - component: {fileID: 2146881346992111152}
+  - component: {fileID: 8758890998805464271}
+  - component: {fileID: 4451952942080664896}
   m_Layer: 0
   m_Name: Posion_Azul
   m_TagString: Untagged
@@ -95,28 +95,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &376537702932092136
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5955212489492023597}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 310f743665d36fb48b4b905c7843e53b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &365630672576076129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -163,7 +141,29 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.408, y: 0.376}
   m_EdgeRadius: 0
---- !u!114 &2146881346992111152
+--- !u!95 &8758890998805464271
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5955212489492023597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 310f743665d36fb48b4b905c7843e53b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4451952942080664896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,9 +172,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5955212489492023597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc2ed9f4f94464045bab82f7900fd8b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 18f2b953c76c6d8489d69b6e0d57cd2b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PotionPickup
-  power: 2
-  pickupEffect: {fileID: 0}
-  pickupSound: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::SphereCollectible
+  world: 3
+  id: pocion_1
+  startHidden: 0
+  bobHeight: 0.15
+  bobSpeed: 2
+  collectEffect: {fileID: 0}
+  collectSound: {fileID: 0}
