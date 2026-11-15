@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems; // <--- 1. AGREGADO PARA DETECTAR CLICS EN BOTONES
 
 [RequireComponent(typeof(PlayerController2D))]
 public class PlayerAttack : MonoBehaviour
@@ -58,7 +59,12 @@ public class PlayerAttack : MonoBehaviour
         UpdateItemTimer();
 
         if (!controller.CanControl) return;
+        if (Time.timeScale == 0f) return; // <--- No dispara si el juego está en pausa
         if (Time.time < nextAttackTime) return;
+
+        // <--- 2. AGREGADO: Si el mouse está sobre un botón de la UI (como el de pausa), ignora el ataque
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
+
         if (!GameInput.AttackPressed()) return;
 
         nextAttackTime = Time.time + cooldown;

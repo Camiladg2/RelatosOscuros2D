@@ -3,28 +3,30 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // En Unity arrastra aquí tu objeto "MenuOpciones"
     public GameObject menuOpcionesGO;
-
-    // En Unity arrastra aquí tu objeto "MainMenu"
     public GameObject mainMenuGO;
-
-    // REEMPLAZAR AQUÍ: Si tienes un panel para los créditos, descomenta la línea de abajo borrando las dos barras (//)
-    // public GameObject menuCreditosGO;
+    public GameObject menuCreditosGO; // <--- Descomentado para usarlo con los créditos
 
     public void OpenOptionsPanel()
     {
-        mainMenuGO.SetActive(false);
-        menuOpcionesGO.SetActive(true);
+        if (mainMenuGO != null) mainMenuGO.SetActive(false);
+        if (menuOpcionesGO != null) menuOpcionesGO.SetActive(true);
+        if (menuCreditosGO != null) menuCreditosGO.SetActive(false); // Asegura que los créditos estén apagados
+    }
+
+    // NUEVA FUNCIÓN: Abre el panel de créditos y oculta el menú principal
+    public void OpenCreditsPanel()
+    {
+        if (mainMenuGO != null) mainMenuGO.SetActive(false);
+        if (menuOpcionesGO != null) menuOpcionesGO.SetActive(false);
+        if (menuCreditosGO != null) menuCreditosGO.SetActive(true);
     }
 
     public void OpenMainMenuPanel()
     {
-        mainMenuGO.SetActive(true);
-        menuOpcionesGO.SetActive(false);
-
-        // Si activaste el panel de créditos arriba, descomenta esta línea también:
-        // if(menuCreditosGO != null) menuCreditosGO.SetActive(false);
+        if (mainMenuGO != null) mainMenuGO.SetActive(true);
+        if (menuOpcionesGO != null) menuOpcionesGO.SetActive(false);
+        if (menuCreditosGO != null) menuCreditosGO.SetActive(false); // Apaga los créditos al volver
     }
 
     public void QuitGame()
@@ -32,33 +34,21 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // BOTÓN JUGAR / CONTINUAR: Carga la última escena donde estuvo el jugador
     public void PlayGame()
     {
-        // Carga la escena de continuar o la última guardada
-        SceneManager.LoadScene("World_1");
+        string escenaGuardada = PlayerPrefs.GetString("UltimaEscena", "World_1");
+        SceneManager.LoadScene(escenaGuardada);
     }
 
-    // 1. NUEVA FUNCIÓN: NUEVA PARTIDA
+    // BOTÓN NUEVA PARTIDA: Borra el progreso anterior y empieza desde cero en World_1
     public void NewGame()
     {
+        PlayerPrefs.DeleteAll(); // Borra el progreso anterior
+        PlayerPrefs.SetString("UltimaEscena", "World_1");
+        PlayerPrefs.SetInt("PocionesGuardadas", 0);
+        PlayerPrefs.Save(); // Fuerza el guardado en disco
 
         SceneManager.LoadScene("World_1");
-
-        // NOTA: Si usas un sistema de guardado (PlayerPrefs), aquí deberías reiniciarlo antes de cargar la escena
-        // Ejemplo: PlayerPrefs.DeleteAll();
-    }
-
-    // 2. NUEVA FUNCIÓN: CRÉDITOS
-    public void OpenCredits()
-    {
-        // Opción A: Si los créditos son otra escena entera
-        // SceneManager.LoadScene("EscenaCreditos");
-
-        // Opción B: Si los créditos son un panel dentro del mismo Canvas (Igual que las opciones)
-        // Para usarlo, debes descomentar las variables de arriba y usar esto:
-        // mainMenuGO.SetActive(false);
-        // menuCreditosGO.SetActive(true);
-
-        Debug.Log("Abriendo Créditos..."); // Esto mostrará un mensaje en la consola de Unity para probar que funciona
     }
 }
