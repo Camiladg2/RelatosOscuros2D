@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZonaDano
   damage: 1
   cooldown: 0.6
+  matar: 0
   returnToSafeSpot: 1
   returnDelay: 0.25
   liftOnReturn: 0.3

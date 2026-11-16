@@ -21,13 +21,13 @@ EditorBuildSettings:
     path: Assets/Scenes/World_3.unity
     guid: 2ec217b24f5178549ac36386d9d54a01
   - enabled: 1
+    path: Assets/Scenes/Game_Over.unity
+    guid: 612e40eafe706f14f9961ae72a56806f
+  - enabled: 1
     path: Assets/Scenes/Prefab_Pausa_Mundos.unity
     guid: daccb6449a71b0c478cea9ffe0eb15b5
   - enabled: 1
     path: Assets/Scenes/Final.unity
     guid: 68fe74cff23230848b7a80ff1b2511a4
-  - enabled: 1
-    path: Assets/Scenes/Game_Over.unity
-    guid: 612e40eafe706f14f9961ae72a56806f
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

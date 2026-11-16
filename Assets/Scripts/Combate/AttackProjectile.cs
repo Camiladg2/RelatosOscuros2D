@@ -39,6 +39,7 @@ public class AttackProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (used) return;
+        Debug.Log("Proyectil toco: " + other.name + " | trigger: " + other.isTrigger);
         if (other.GetComponentInParent<PlayerController2D>() != null) return;
 
         IWeaknessReceiver weak = other.GetComponentInParent<IWeaknessReceiver>();

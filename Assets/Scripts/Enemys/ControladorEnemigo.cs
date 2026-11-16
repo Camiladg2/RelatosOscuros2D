@@ -1,36 +1,35 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ControladorEnemigo : MonoBehaviour
 {
-    [Header("Movimiento y Detección")]
+    [Header("Movimiento y Deteccion")]
     public float velocidad = 2.5f;
     public float fuerzaSalto = 5f;
     public float distanciaDeDeteccion = 6f;
     public Transform jugador;
 
-    [Header("Daño")]
-    public int dañoAlJugador = 1;
+    [Header("Dano")]
+    [FormerlySerializedAs("daÃ±oAlJugador")]
+    public int danoAlJugador = 1;
 
-    [Header("Detección de Plataformas / Abismos")]
+    [Header("Deteccion de Plataformas / Abismos")]
     public LayerMask capaSuelo;
-    public float distanciaSensorAdelante = 0.6f; // Qué tan adelante se coloca el sensor
-    public float alturaSensorY = -0.5f;        // Qué tan abajo (en los pies) se coloca
+    public float distanciaSensorAdelante = 0.6f;
+    public float alturaSensorY = -0.5f;
     public float radioDeteccion = 0.15f;
     public float tiempoEntreSaltos = 0.5f;
 
     private Rigidbody2D rb;
     private Animator animator;
-    private bool estaMuerto = false;
     private bool estaPersiguiendo = false;
     private Vector3 escalaOriginal;
     private float posicionZOriginal;
     private float tiempoSiguienteSalto = 0f;
     private VidaEnemigo scriptVida;
-
-    // Posición calculada del sensor en tiempo real
     private Vector2 posicionSensorActual;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -45,10 +44,10 @@ public class ControladorEnemigo : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (jugador == null) return;
-        if (scriptVida != null && scriptVida.vidaMaxima <= 0) return; // Opcional
+        if (scriptVida != null && scriptVida.EstaMuerto) return;
 
         float distanciaAlJugador = Vector2.Distance(transform.position, jugador.position);
 
@@ -60,72 +59,64 @@ public class ControladorEnemigo : MonoBehaviour
         else
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            animator.SetFloat("Speed", 0f);
+            if (animator != null) animator.SetFloat("Speed", 0f);
         }
     }
 
-    void MoverEnPlataformas()
+    private void MoverEnPlataformas()
     {
         int direccion = (jugador.position.x > transform.position.x) ? 1 : -1;
 
         rb.linearVelocity = new Vector2(direccion * velocidad, rb.linearVelocity.y);
         transform.position = new Vector3(transform.position.x, transform.position.y, posicionZOriginal);
 
-        animator.SetFloat("Speed", Mathf.Abs(velocidad));
+        if (animator != null) animator.SetFloat("Speed", Mathf.Abs(velocidad));
 
-        // Voltear sprite manteniendo la escala original
         if (direccion > 0)
-        {
             transform.localScale = new Vector3(escalaOriginal.x, escalaOriginal.y, escalaOriginal.z);
-        }
         else
-        {
             transform.localScale = new Vector3(-1 * escalaOriginal.x, escalaOriginal.y, escalaOriginal.z);
-        }
 
-        // --- CALCULAR EL SENSOR AUTOMÁTICAMENTE AL FRENTE (IZQUIERDA O DERECHA) ---
-        // Tomamos la posición de la Llorona y le sumamos la distancia hacia adelante según su dirección
         float posXSensor = transform.position.x + (distanciaSensorAdelante * direccion);
         float posYSensor = transform.position.y + alturaSensorY;
         posicionSensorActual = new Vector2(posXSensor, posYSensor);
 
-        // Detecta si hay suelo justo delante de los pies en esa posición calculada
         bool haySueloAdelante = Physics2D.OverlapCircle(posicionSensorActual, radioDeteccion, capaSuelo);
 
-        // Si hay un abismo (no hay suelo adelante), está en el suelo y ya pasó el tiempo: SALTA
         if (!haySueloAdelante && Mathf.Abs(rb.linearVelocity.y) < 0.05f && Time.time >= tiempoSiguienteSalto)
         {
-            Saltar();
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
             tiempoSiguienteSalto = Time.time + tiempoEntreSaltos;
         }
     }
 
-    void Saltar()
-    {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            animator.SetTrigger("Attack");
-
-            VidaJugador scriptVidaJugador = collision.gameObject.GetComponent<VidaJugador>();
-            if (scriptVidaJugador != null)
-            {
-                scriptVidaJugador.RecibirDaño(dañoAlJugador);
-            }
-        }
+        Golpear(collision);
     }
 
-    // Dibuja los Gizmos para ver el radio de detección y el sensor flotante calculado por código
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Golpear(collision);
+    }
+
+    private void Golpear(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player")) return;
+        if (scriptVida != null && scriptVida.EstaMuerto) return;
+
+        PlayerHealth vida = collision.gameObject.GetComponentInParent<PlayerHealth>();
+        if (vida == null) return;
+
+        if (vida.TakeDamage(danoAlJugador, transform.position) && animator != null)
+            animator.SetTrigger("Attack");
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, distanciaDeDeteccion);
 
-        // Dibuja el sensor de los pies en tiempo real en la escena
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(posicionSensorActual, radioDeteccion);
     }

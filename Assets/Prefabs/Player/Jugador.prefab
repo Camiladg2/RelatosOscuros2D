@@ -341,6 +341,7 @@ MonoBehaviour:
   invulnerableTime: 1.5
   knockbackForce: 9
   stunTime: 0.25
+  respawnInvulnerableTime: 1.5
   spriteToBlink: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &6408197893646481595
@@ -358,7 +359,7 @@ MonoBehaviour:
   moveSpeed: 7
   groundAcceleration: 90
   airAcceleration: 60
-  jumpVelocity: 12
+  jumpVelocity: 8
   fallGravityMultiplier: 2.2
   lowJumpGravityMultiplier: 2.6
   maxFallSpeed: 25
@@ -401,10 +402,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c836385ac5dfc5349886c4a39cea2193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  projectilePrefab: {fileID: 5213077960454157479, guid: fe1b5b3c399497d4b82b221ba6dabcd5,
+  projectilePrefab: {fileID: 6567627608643080576, guid: bd3b7aff8d621e043b732df2f6eb2b34,
     type: 3}
   firePoint: {fileID: 0}
   fallbackOffset: {x: 0.6, y: 0.6}
+  baseProjectileSprite: {fileID: 0}
   cooldown: 0.45
   fireDelay: 0.15
   baseDamage: 1

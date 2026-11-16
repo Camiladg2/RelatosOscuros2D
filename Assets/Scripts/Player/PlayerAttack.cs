@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems; // <--- 1. AGREGADO PARA DETECTAR CLICS EN BOTONES
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(PlayerController2D))]
 public class PlayerAttack : MonoBehaviour
@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform firePoint;
     public Vector2 fallbackOffset = new Vector2(0.6f, 0.6f);
+    public Sprite baseProjectileSprite;
     public float cooldown = 0.45f;
     public float fireDelay = 0.15f;
     public int baseDamage = 1;
@@ -26,9 +27,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Icono del objeto (opcional)")]
     public SpriteRenderer heldIcon;
 
-    /// <summary>Segundos que le quedan al objeto (0 si no tiene limite de tiempo).</summary>
     public float ItemTimeLeft { get; private set; }
-    /// <summary>De 1 (recien recogido) a 0 (se acaba). Sirve para una barra en la UI.</summary>
     public float ItemTimeFraction { get { return itemHasTimer && itemDuration > 0f ? ItemTimeLeft / itemDuration : 1f; } }
 
     public event Action OnAttack;
@@ -59,12 +58,9 @@ public class PlayerAttack : MonoBehaviour
         UpdateItemTimer();
 
         if (!controller.CanControl) return;
-        if (Time.timeScale == 0f) return; // <--- No dispara si el juego está en pausa
+        if (Time.timeScale == 0f) return;
         if (Time.time < nextAttackTime) return;
-
-        // <--- 2. AGREGADO: Si el mouse está sobre un botón de la UI (como el de pausa), ignora el ataque
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
-
         if (!GameInput.AttackPressed()) return;
 
         nextAttackTime = Time.time + cooldown;
@@ -87,12 +83,12 @@ public class PlayerAttack : MonoBehaviour
         Vector2 direction = controller.FacingRight ? Vector2.right : Vector2.left;
 
         WeaknessType weakness = heldItem;
-        Sprite spriteToThrow = null;
+        Sprite spriteToThrow = baseProjectileSprite;
         int damage = baseDamage;
         if (heldItem != WeaknessType.None)
         {
             damage = itemDamage;
-            spriteToThrow = heldSprite;
+            if (heldSprite != null) spriteToThrow = heldSprite;
             UseCharge();
         }
 
@@ -112,7 +108,6 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
 
-        // Parpadea cuando queda poco tiempo.
         if (heldIcon != null && heldSprite != null)
         {
             bool blinkOff = ItemTimeLeft < blinkWhenLeft && ((int)(ItemTimeLeft * 6f) % 2 == 0);
@@ -131,7 +126,6 @@ public class PlayerAttack : MonoBehaviour
         if (OnItemChanged != null) OnItemChanged(heldItem, itemCharges);
     }
 
-    /// <summary>Quita el objeto de la mano (se acabo el tiempo o las cargas).</summary>
     public void ClearItem()
     {
         heldItem = WeaknessType.None;
@@ -144,7 +138,6 @@ public class PlayerAttack : MonoBehaviour
         if (OnItemChanged != null) OnItemChanged(heldItem, itemCharges);
     }
 
-    /// <summary>La protagonista recoge un objeto. duration = segundos que dura (0 = sin limite de tiempo).</summary>
     public void GiveItem(WeaknessType type, int charges, Sprite icon, float duration)
     {
         heldItem = type;

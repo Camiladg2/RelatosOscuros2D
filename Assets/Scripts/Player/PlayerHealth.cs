@@ -2,10 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// Vida de la protagonista: recibir dano con empujon, tiempo de invulnerabilidad con parpadeo,
-/// morir y reaparecer. La interfaz (UI) se conecta con los eventos de abajo.
-/// </summary>
 [RequireComponent(typeof(PlayerController2D))]
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float invulnerableTime = 1.5f;
     public float knockbackForce = 9f;
     public float stunTime = 0.25f;
+    public float respawnInvulnerableTime = 1.5f;
 
     [Header("Visual (opcional)")]
     public SpriteRenderer spriteToBlink;
@@ -21,16 +18,18 @@ public class PlayerHealth : MonoBehaviour
     public int CurrentHealth { get; private set; }
     public bool IsDead { get; private set; }
     public bool IsInvulnerable { get; private set; }
+    public bool MurioPorCaida { get; private set; }
 
-    /// <summary>(vida actual, vida maxima). La UI se suscribe aqui.</summary>
     public event Action<int, int> OnHealthChanged;
     public event Action OnDamaged;
-    /// <summary>Se dispara al morir: aqui se activa el Game Over.</summary>
     public event Action OnDied;
+    public event Action OnRespawned;
 
     private PlayerController2D controller;
     private PlayerPowerUps powerUps;
+    private Rigidbody2D body;
     private SafeAnimator anim;
+    private RigidbodyConstraints2D constraintsOriginales;
 
     private static readonly int HurtHash = Animator.StringToHash("Hurt");
     private static readonly int DieHash = Animator.StringToHash("Die");
@@ -40,6 +39,8 @@ public class PlayerHealth : MonoBehaviour
     {
         controller = GetComponent<PlayerController2D>();
         powerUps = GetComponent<PlayerPowerUps>();
+        body = GetComponent<Rigidbody2D>();
+        if (body != null) constraintsOriginales = body.constraints;
         if (animator == null) animator = GetComponentInChildren<Animator>();
         if (spriteToBlink == null) spriteToBlink = GetComponentInChildren<SpriteRenderer>();
         anim = new SafeAnimator(animator);
@@ -51,13 +52,11 @@ public class PlayerHealth : MonoBehaviour
         if (OnHealthChanged != null) OnHealthChanged(CurrentHealth, maxHealth);
     }
 
-    /// <summary>Quita vida con empujon. Devuelve true si realmente hizo dano.</summary>
     public bool TakeDamage(int amount, Vector2 sourcePosition)
     {
         return TakeDamage(amount, sourcePosition, true);
     }
 
-    /// <summary>Quita vida. Con applyKnockback en false no la empuja (por ejemplo, la lluvia de acido).</summary>
     public bool TakeDamage(int amount, Vector2 sourcePosition, bool applyKnockback)
     {
         if (IsDead || IsInvulnerable) return false;
@@ -74,7 +73,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
-            Die();
+            Die(false);
             return true;
         }
 
@@ -95,37 +94,74 @@ public class PlayerHealth : MonoBehaviour
         if (OnHealthChanged != null) OnHealthChanged(CurrentHealth, maxHealth);
     }
 
-    /// <summary>Mata al jugador de inmediato (por ejemplo, caer al vacio).</summary>
     public void Kill()
     {
         if (IsDead) return;
         CurrentHealth = 0;
         if (OnHealthChanged != null) OnHealthChanged(CurrentHealth, maxHealth);
-        Die();
+        Die(true);
     }
 
-    /// <summary>Devuelve al jugador a la vida en una posicion (reaparecer).</summary>
     public void Respawn(Vector3 position)
     {
         StopAllCoroutines();
         if (spriteToBlink != null) spriteToBlink.enabled = true;
         IsDead = false;
+        MurioPorCaida = false;
         IsInvulnerable = false;
         CurrentHealth = maxHealth;
+
+        if (body != null)
+        {
+            body.simulated = true;
+            body.constraints = constraintsOriginales;
+        }
         transform.position = position;
+        if (body != null) body.position = position;
+        Physics2D.SyncTransforms();
+
         controller.Stop();
         controller.SetControl(true);
+        ResetTriggerSafe(HurtHash);
+        ResetTriggerSafe(DieHash);
         anim.SetTrigger(ReviveHash);
+
         if (OnHealthChanged != null) OnHealthChanged(CurrentHealth, maxHealth);
+        if (OnRespawned != null) OnRespawned();
+        if (respawnInvulnerableTime > 0f) StartCoroutine(InvulnerabilityRoutine(respawnInvulnerableTime));
     }
 
-    private void Die()
+    private void Die(bool congelar)
     {
         IsDead = true;
+        MurioPorCaida = congelar;
         controller.Stop();
         controller.SetControl(false);
+
+        if (body != null)
+        {
+            if (congelar)
+                body.simulated = false;
+            else
+                body.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        }
+
+        ResetTriggerSafe(ReviveHash);
         anim.SetTrigger(DieHash);
         if (OnDied != null) OnDied();
+    }
+
+    private void ResetTriggerSafe(int hash)
+    {
+        if (animator == null) return;
+        foreach (AnimatorControllerParameter p in animator.parameters)
+        {
+            if (p.nameHash == hash)
+            {
+                animator.ResetTrigger(hash);
+                return;
+            }
+        }
     }
 
     private IEnumerator InvulnerabilityRoutine(float seconds)

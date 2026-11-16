@@ -1,31 +1,71 @@
+using System.Collections;
 using UnityEngine;
 
-public class VidaEnemigo : MonoBehaviour
+public class VidaEnemigo : MonoBehaviour, IDamageable, IWeaknessReceiver
 {
-    [Header("Configuración de Salud")]
-    public int vidaMaxima = 3; // Cambia este número en el Inspector para cada enemigo
-    private int vidaActual;
+    [Header("Configuracion de Salud")]
+    public int vidaMaxima = 3;
 
+    [Header("Debilidad")]
+    public WeaknessType debilidad = WeaknessType.None;
+    public int danoPorDebilidad = 1;
+    public int danoPorOtroObjeto = 1;
+
+    [Header("Color al recibir dano")]
+    public Color colorDano = new Color(1f, 0.25f, 0.25f, 1f);
+    public float duracionColor = 0.5f;
+
+    private int vidaActual;
     private Animator animator;
     private Rigidbody2D rb;
     private Collider2D col;
     private bool estaMuerto = false;
+    private SpriteRenderer[] sprites;
+    private Color[] coloresOriginales;
+    private Coroutine rutinaColor;
 
-    void Start()
+    public int VidaActual { get { return vidaActual; } }
+    public bool EstaMuerto { get { return estaMuerto; } }
+
+    private void Awake()
     {
         vidaActual = vidaMaxima;
         animator = GetComponent<Animator>();
+        if (animator == null) animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+
+        sprites = GetComponentsInChildren<SpriteRenderer>();
+        coloresOriginales = new Color[sprites.Length];
+        for (int i = 0; i < sprites.Length; i++) coloresOriginales[i] = sprites[i].color;
     }
 
-    // Esta función la llamará el ataque de tu jugador
-    public void RecibirDaño(int cantidadDaño)
+    public void TakeDamage(int amount, Vector2 sourcePosition)
     {
-        if (estaMuerto) return;
+        RecibirDano(amount);
+    }
 
-        vidaActual -= cantidadDaño;
-        Debug.Log(gameObject.name + " recibió daño. Vida restante: " + vidaActual);
+    public void ApplyWeakness(WeaknessType type, Vector2 sourcePosition)
+    {
+        if (type == WeaknessType.None) return;
+        bool coincide = debilidad == WeaknessType.None || debilidad == type;
+        RecibirDano(coincide ? danoPorDebilidad : danoPorOtroObjeto);
+    }
+
+    public void RecibirDaÃ±o(int cantidadDano)
+    {
+        RecibirDano(cantidadDano);
+    }
+
+    public void RecibirDano(int cantidadDano)
+    {
+        if (estaMuerto || cantidadDano <= 0) return;
+
+        vidaActual -= cantidadDano;
+        Debug.Log(gameObject.name + " recibio dano. Vida restante: " + vidaActual);
+
+        if (rutinaColor != null) StopCoroutine(rutinaColor);
+        rutinaColor = StartCoroutine(CambiarColor());
 
         if (vidaActual <= 0)
         {
@@ -33,27 +73,39 @@ public class VidaEnemigo : MonoBehaviour
         }
         else
         {
-            // Activa la animación de daño si aún sigue vivo
             if (animator != null) animator.SetTrigger("Hurt");
         }
     }
 
-    void Morir()
+    private IEnumerator CambiarColor()
+    {
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            if (sprites[i] != null) sprites[i].color = colorDano;
+        }
+
+        yield return new WaitForSeconds(duracionColor);
+
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            if (sprites[i] != null) sprites[i].color = coloresOriginales[i];
+        }
+        rutinaColor = null;
+    }
+
+    private void Morir()
     {
         estaMuerto = true;
 
-        // 1. Activa la animación de muerte
         if (animator != null) animator.SetTrigger("Die");
 
-        // 2. Detiene su movimiento físico y desactiva colisiones para que no siga haciendo daño
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
-            rb.simulated = false; // Evita que caiga o empuje al jugador mientras desaparece
+            rb.simulated = false;
         }
         if (col != null) col.enabled = false;
 
-        // 3. Destruye el objeto después de 1.5 segundos (tiempo para que se vea la animación Die)
         Destroy(gameObject, 1.5f);
     }
 }

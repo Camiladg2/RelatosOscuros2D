@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ControladorEnemigoPatrulla : MonoBehaviour
 {
@@ -6,30 +7,30 @@ public class ControladorEnemigoPatrulla : MonoBehaviour
     public Transform puntoA;
     public Transform puntoB;
     public float velocidadPatrulla = 1.5f;
-    public float tiempoEsperaEnPunto = 1f; // Pausa breve al llegar a cada extremo
+    public float tiempoEsperaEnPunto = 1f;
 
-    [Header("Persecución y Detección")]
+    [Header("Persecucion y Deteccion")]
     public float velocidadPersecucion = 3f;
     public float fuerzaSalto = 5f;
     public float distanciaDeDeteccion = 5f;
     public float distanciaMaximaPersecucion = 10f;
     public Transform jugador;
 
-    [Header("Daño")]
-    public int dañoAlJugador = 1;
+    [Header("Dano")]
+    [FormerlySerializedAs("daÃ±oAlJugador")]
+    public int danoAlJugador = 1;
 
-    [Header("Detección de Plataformas / Abismos")]
+    [Header("Deteccion de Plataformas / Abismos")]
     public LayerMask capaSuelo;
     public float distanciaSensorAdelante = 0.6f;
     public float alturaSensorY = -0.5f;
     public float radioDeteccion = 0.15f;
     public float tiempoEntreSaltos = 0.5f;
-    private VidaEnemigo scriptVida;
 
+    private VidaEnemigo scriptVida;
     private Rigidbody2D rb;
     private Animator animator;
     private Transform objetivoActual;
-    private bool estaMuerto = false;
     private bool estaPersiguiendo = false;
     private float contadorEspera = 0f;
     private float tiempoSiguienteSalto = 0f;
@@ -37,7 +38,7 @@ public class ControladorEnemigoPatrulla : MonoBehaviour
     private float posicionZOriginal;
     private Vector2 posicionSensorActual;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -45,7 +46,6 @@ public class ControladorEnemigoPatrulla : MonoBehaviour
         posicionZOriginal = transform.position.z;
         scriptVida = GetComponent<VidaEnemigo>();
 
-        // Empieza caminando hacia el Punto B
         objetivoActual = puntoB;
 
         if (jugador == null)
@@ -55,81 +55,64 @@ public class ControladorEnemigoPatrulla : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (jugador == null) return;
-        if (scriptVida != null && scriptVida.vidaMaxima <= 0) return; // Opcional
+        if (scriptVida != null && scriptVida.EstaMuerto) return;
 
         float distanciaAlJugador = Vector2.Distance(transform.position, jugador.position);
 
-        // Revisar si el jugador está dentro del rango de visión
         if (distanciaAlJugador <= distanciaDeDeteccion)
-        {
             estaPersiguiendo = true;
-        }
         else if (distanciaAlJugador > distanciaMaximaPersecucion)
-        {
             estaPersiguiendo = false;
-        }
 
-        if (estaPersiguiendo)
-        {
-            PerseguirJugador();
-        }
-        else
-        {
-            Patrullar();
-        }
+        if (estaPersiguiendo) PerseguirJugador();
+        else Patrullar();
     }
 
-    void Patrullar()
+    private void Patrullar()
     {
         if (puntoA == null || puntoB == null) return;
 
-        // Distancia horizontal hacia el punto destino actual
         float distanciaAlObjetivo = Mathf.Abs(transform.position.x - objetivoActual.position.x);
 
         if (distanciaAlObjetivo < 0.2f)
         {
-            // Llegó al punto: se detiene un momento antes de dar la vuelta
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            animator.SetFloat("Speed", 0f);
+            if (animator != null) animator.SetFloat("Speed", 0f);
 
             contadorEspera += Time.deltaTime;
             if (contadorEspera >= tiempoEsperaEnPunto)
             {
-                // Cambia al otro punto
                 objetivoActual = (objetivoActual == puntoA) ? puntoB : puntoA;
                 contadorEspera = 0f;
             }
         }
         else
         {
-            // Camina hacia el punto destino
             int direccion = (objetivoActual.position.x > transform.position.x) ? 1 : -1;
             Mover(direccion, velocidadPatrulla);
         }
     }
 
-    void PerseguirJugador()
+    private void PerseguirJugador()
     {
         int direccion = (jugador.position.x > transform.position.x) ? 1 : -1;
         Mover(direccion, velocidadPersecucion);
     }
 
-    void Mover(int direccion, float velocidadActual)
+    private void Mover(int direccion, float velocidadActual)
     {
         rb.linearVelocity = new Vector2(direccion * velocidadActual, rb.linearVelocity.y);
         transform.position = new Vector3(transform.position.x, transform.position.y, posicionZOriginal);
-        animator.SetFloat("Speed", Mathf.Abs(velocidadActual));
+        if (animator != null) animator.SetFloat("Speed", Mathf.Abs(velocidadActual));
 
-        // Voltear sprite manteniendo escala
         if (direccion > 0)
             transform.localScale = new Vector3(escalaOriginal.x, escalaOriginal.y, escalaOriginal.z);
         else
             transform.localScale = new Vector3(-1 * escalaOriginal.x, escalaOriginal.y, escalaOriginal.z);
 
-        // Sensor de abismos/plataformas
         float posXSensor = transform.position.x + (distanciaSensorAdelante * direccion);
         float posYSensor = transform.position.y + alturaSensorY;
         posicionSensorActual = new Vector2(posXSensor, posYSensor);
@@ -145,19 +128,26 @@ public class ControladorEnemigoPatrulla : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            animator.SetTrigger("Attack");
-
-            VidaJugador scriptVidaJugador = collision.gameObject.GetComponent<VidaJugador>();
-            if (scriptVidaJugador != null)
-            {
-                scriptVidaJugador.RecibirDaño(dañoAlJugador);
-            }
-        }
+        Golpear(collision);
     }
 
-    // Dibuja los Gizmos de visión, sensor y la línea entre Punto A y Punto B
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Golpear(collision);
+    }
+
+    private void Golpear(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player")) return;
+        if (scriptVida != null && scriptVida.EstaMuerto) return;
+
+        PlayerHealth vida = collision.gameObject.GetComponentInParent<PlayerHealth>();
+        if (vida == null) return;
+
+        if (vida.TakeDamage(danoAlJugador, transform.position) && animator != null)
+            animator.SetTrigger("Attack");
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

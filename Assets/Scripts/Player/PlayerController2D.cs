@@ -1,9 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Movimiento de la protagonista: caminar, saltar (con coyote time y salto en cola),
-/// salto de altura variable, doble salto (poder) y empujon al recibir dano.
-/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController2D : MonoBehaviour
 {
@@ -32,9 +28,8 @@ public class PlayerController2D : MonoBehaviour
     [Header("Animator (opcional)")]
     public Animator animator;
 
-    // Los poderes (PlayerPowerUps) cambian estos valores.
     [HideInInspector] public float speedMultiplier = 1f;
-    [HideInInspector] public int extraJumps = 0;   // saltos extra en el aire (doble salto = 1)
+    [HideInInspector] public int extraJumps = 0;
 
     public bool IsGrounded { get; private set; }
     public bool FacingRight { get; private set; }
@@ -77,7 +72,6 @@ public class PlayerController2D : MonoBehaviour
 
     private void Update()
     {
-        // Suelo: solo cuenta si no estamos subiendo (evita contarlo justo despues de saltar).
         bool touching = groundCheck != null && Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer) != null;
         IsGrounded = touching && Vel.y <= 0.1f;
 
@@ -142,7 +136,6 @@ public class PlayerController2D : MonoBehaviour
             v.x = Mathf.MoveTowards(v.x, target, accel * Time.fixedDeltaTime);
         }
 
-        // Gravedad variable: cae mas rapido y el salto es mas corto si sueltas el boton.
         if (v.y < 0f) rb.gravityScale = baseGravity * fallGravityMultiplier;
         else if (v.y > 0f && !jumpHeld) rb.gravityScale = baseGravity * lowJumpGravityMultiplier;
         else rb.gravityScale = baseGravity;
@@ -164,14 +157,12 @@ public class PlayerController2D : MonoBehaviour
         transform.localScale = s;
     }
 
-    /// <summary>Empuja a la protagonista (por ejemplo al recibir dano) y le quita el control un momento.</summary>
     public void ApplyKnockback(Vector2 direction, float force, float stunSeconds)
     {
         stunTimer = stunSeconds;
         Vel = direction.normalized * force;
     }
 
-    /// <summary>Activa o desactiva el control del jugador (pausa, muerte, escenas de cierre).</summary>
     public void SetControl(bool enabledControl)
     {
         inputEnabled = enabledControl;

@@ -1,11 +1,6 @@
 using System;
 using UnityEngine;
 
-/// <summary>
-/// Lluvia de acido con temporizador. Ciclo: calma -> aviso -> lluvia -> calma...
-/// Durante la lluvia hace dano periodico a la protagonista, salvo que este bajo un techo (refugio).
-/// Ponlo en un objeto vacio de la escena.
-/// </summary>
 public class AcidRain : MonoBehaviour
 {
     public enum Phase { Calm, Warning, Rain }
@@ -21,6 +16,10 @@ public class AcidRain : MonoBehaviour
     [Tooltip("Cada cuantos segundos hace dano durante la lluvia. Debe ser mayor que el tiempo de invulnerabilidad de la protagonista (1.5 s).")]
     public float damageInterval = 2f;
 
+    [Header("Zona donde cae la lluvia")]
+    [Tooltip("Collider2D (Is Trigger) que cubre el area de la lluvia. Solo hace dano dentro de el. Si lo dejas vacio, hace dano en todo el nivel.")]
+    public Collider2D zona;
+
     [Header("Refugio (techos)")]
     [Tooltip("Capas que cuentan como techo (normalmente Ground).")]
     public LayerMask coverLayer;
@@ -28,6 +27,9 @@ public class AcidRain : MonoBehaviour
     public float coverCheckHeight = 8f;
     [Tooltip("Desde que altura sobre su centro se busca el techo (para no chocar con su propio collider).")]
     public float headOffset = 1f;
+
+    [Header("Diagnostico")]
+    public bool mostrarMensajes = true;
 
     [Header("Efectos visuales (objetos que se encienden y apagan)")]
     public GameObject rainEffect;
@@ -58,6 +60,10 @@ public class AcidRain : MonoBehaviour
         {
             Debug.LogWarning("[Lluvia de acido] No encontre al Jugador. Revisa que tenga el Tag Player.");
         }
+
+        if (zona == null)
+            Debug.LogWarning("[Lluvia de acido] No hay Zona asignada: hace dano en todo el nivel.", this);
+
         SetPhase(startWithRain ? Phase.Rain : Phase.Calm);
     }
 
@@ -93,19 +99,36 @@ public class AcidRain : MonoBehaviour
         if (old == Phase.Rain && phase != Phase.Rain && OnRainEnd != null) OnRainEnd();
     }
 
+    private bool InsideZone()
+    {
+        if (zona == null) return true;
+        Collider2D body = player.GetComponentInChildren<Collider2D>();
+        if (body == null) return zona.OverlapPoint(player.position);
+        return zona.Distance(body).isOverlapped;
+    }
+
     private void DamageTick()
     {
-        if (player == null || health == null) return;
+        if (player == null || health == null)
+        {
+            if (mostrarMensajes) Debug.LogWarning("[Lluvia] Falta el Jugador o su PlayerHealth. player=" + (player != null) + " health=" + (health != null), this);
+            return;
+        }
 
         damageTimer -= Time.deltaTime;
         if (damageTimer > 0f) return;
         damageTimer = damageInterval;
 
-        if (!IsExposed()) return;
-        health.TakeDamage(damage, new Vector2(player.position.x, player.position.y + 5f), false);
+        bool dentro = InsideZone();
+        bool expuesta = IsExposed();
+        if (mostrarMensajes) Debug.Log("[Lluvia] Intento de dano. Dentro de la zona: " + dentro + " | Sin techo: " + expuesta + " | Invulnerable: " + health.IsInvulnerable, this);
+
+        if (!dentro) return;
+        if (!expuesta) return;
+        bool hizo = health.TakeDamage(damage, new Vector2(player.position.x, player.position.y + 5f), false);
+        if (mostrarMensajes) Debug.Log("[Lluvia] Dano aplicado: " + hizo, this);
     }
 
-    /// <summary>True si no hay un techo encima de la protagonista (la lluvia la moja).</summary>
     public bool IsExposed()
     {
         if (player == null) return false;
