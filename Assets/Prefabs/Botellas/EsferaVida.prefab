@@ -147,7 +147,7 @@ MonoBehaviour:
   bobHeight: 0.12
   bobSpeed: 2
   pickupEffect: {fileID: 0}
-  pickupSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 5d379bdb4f670464b83d9fcc6eeaf134, type: 3}
   alRecoger:
     m_PersistentCalls:
       m_Calls: []

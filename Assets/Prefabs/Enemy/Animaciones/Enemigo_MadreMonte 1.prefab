@@ -212,7 +212,7 @@ MonoBehaviour:
   distanciaDeDeteccion: 1.04
   distanciaMaximaPersecucion: 10
   jugador: {fileID: 0}
-  "da\xF1oAlJugador": 1
+  danoAlJugador: 3
 --- !u!114 &-2271015420114432210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,3 +226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaEnemigo
   vidaMaxima: 10
+  debilidad: 0
+  danoPorDebilidad: 3
+  danoPorOtroObjeto: 3
+  colorDano: {r: 1, g: 0.25, b: 0.25, a: 1}
+  duracionColor: 0.5

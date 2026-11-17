@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 236332015}
   - component: {fileID: 236332014}
   - component: {fileID: 236332018}
+  - component: {fileID: 236332019}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -425,6 +426,19 @@ MonoBehaviour:
   menuOpcionesGO: {fileID: 1164256432}
   mainMenuGO: {fileID: 13281518}
   menuCreditosGO: {fileID: 197344269}
+--- !u!114 &236332019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236332013}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53f68542cf3c184a9a04aa8a0e806be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbrirCreditosAlIniciar
+  panelCreditos: {fileID: 197344269}
 --- !u!1 &243540378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,7 +3662,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 236240679}
   m_Direction: 2
   m_Value: 0.50814635
-  m_Size: 0.043160494
+  m_Size: 0.0431605
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
