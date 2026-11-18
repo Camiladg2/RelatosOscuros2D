@@ -359,7 +359,7 @@ MonoBehaviour:
   moveSpeed: 7
   groundAcceleration: 90
   airAcceleration: 60
-  jumpVelocity: 8
+  jumpVelocity: 11
   fallGravityMultiplier: 2.2
   lowJumpGravityMultiplier: 2.6
   maxFallSpeed: 25
