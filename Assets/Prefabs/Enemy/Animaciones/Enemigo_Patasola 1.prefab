@@ -213,7 +213,7 @@ MonoBehaviour:
   distanciaDeDeteccion: 1.86
   distanciaMaximaPersecucion: 10
   jugador: {fileID: 0}
-  "da\xF1oAlJugador": 1
+  danoAlJugador: 2
   capaSuelo:
     serializedVersion: 2
     m_Bits: 64
@@ -234,3 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaEnemigo
   vidaMaxima: 5
+  debilidad: 0
+  danoPorDebilidad: 2
+  danoPorOtroObjeto: 2
+  colorDano: {r: 1, g: 0.25, b: 0.25, a: 1}
+  duracionColor: 0.5

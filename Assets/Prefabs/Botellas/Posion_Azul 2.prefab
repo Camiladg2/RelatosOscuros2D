@@ -181,4 +181,4 @@ MonoBehaviour:
   bobHeight: 0.15
   bobSpeed: 2
   collectEffect: {fileID: 0}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 08d6a56c19ddbee45923a006ff0b8feb, type: 3}

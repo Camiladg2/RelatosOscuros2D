@@ -15,6 +15,10 @@ public class PlayerHealth : MonoBehaviour
     public SpriteRenderer spriteToBlink;
     public Animator animator;
 
+    [Header("Sonido de Daño")]
+    public AudioClip sonidoDaño; // Arrastra aquí el sonido de golpe/daño
+    private AudioSource audioSourcePlayer;
+
     public int CurrentHealth { get; private set; }
     public bool IsDead { get; private set; }
     public bool IsInvulnerable { get; private set; }
@@ -49,6 +53,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        // Obtiene el AudioSource del jugador o lo crea si no existe
+        audioSourcePlayer = GetComponent<AudioSource>();
+        if (audioSourcePlayer == null)
+            audioSourcePlayer = gameObject.AddComponent<AudioSource>();
+
         if (OnHealthChanged != null) OnHealthChanged(CurrentHealth, maxHealth);
     }
 
@@ -68,6 +77,13 @@ public class PlayerHealth : MonoBehaviour
         }
 
         CurrentHealth = Mathf.Max(0, CurrentHealth - amount);
+
+        // Reproducir sonido de daño
+        if (sonidoDaño != null && audioSourcePlayer != null)
+        {
+            audioSourcePlayer.PlayOneShot(sonidoDaño);
+        }
+
         if (OnHealthChanged != null) OnHealthChanged(CurrentHealth, maxHealth);
         if (OnDamaged != null) OnDamaged();
 

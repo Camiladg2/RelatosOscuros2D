@@ -207,7 +207,7 @@ MonoBehaviour:
   fuerzaSalto: 5
   distanciaDeDeteccion: 1.77
   jugador: {fileID: 0}
-  "da\xF1oAlJugador": 1
+  danoAlJugador: 2
   capaSuelo:
     serializedVersion: 2
     m_Bits: 64

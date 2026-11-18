@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionPickup
   power: 3
   pickupEffect: {fileID: 0}
-  pickupSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 5d379bdb4f670464b83d9fcc6eeaf134, type: 3}
 --- !u!114 &683590311870390096
 MonoBehaviour:
   m_ObjectHideFlags: 0
